@@ -14,11 +14,11 @@
 
 ## 示例
 
-您可以在以下网址查看一个在线示例：[最小的抽奖器 HTML 实现](https://your-username.github.io/lottery)
+您可以在以下网址查看一个在线示例：[最小的抽奖器 HTML 实现](https://kkkklooooo.github.io/lottery/)
 
 ## 版权和许可
 
-该项目基于MIT 许可。您可以自由地使用、修改和分发该项目。
+该项目基于[MIT](LICENSE)许可。您可以自由地使用、修改和分发该项目。
 
 ## 贡献
 
