@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>抽奖</title>
+  <style>
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="centered-text">抽奖活动</h1>
+        <p class="centered-text">点击下面的按钮进行抽奖：</p>
+        
+        
+    </div>
+    <div class="container">
+        <button class="button" id="lotteryButton" onclick="startLottery()">开始抽奖</button>
+    </div>
+    <div class="container1">
+        <p id="result" font-size=10></p>
+    </div>
+    <div class="container">
+        <h4 class="container-text" id="remain">ssss</h4>
+    </div>
+        
+
+      
+  
+  
+
+  <script>
+    var prizes = ["一等奖", "二等奖", "三等奖", "幸运奖"];
+    function startLottery() {
+      // 在这里编写抽奖逻辑
+      // 可以使用JavaScript生成随机数、从数组中选择随机项等
+      
+      // 假设抽奖结果是一个数组
+      
+      
+      // 生成一个随机索引
+      var randomIndex = Math.floor(Math.random() * prizes.length);
+      
+      // 获取抽奖按钮和结果显示元素的引用
+      var lotteryButton = document.getElementById("lotteryButton");
+      var resultElement = document.getElementById("result");
+      resultElement.classList.remove("result");
+      void resultElement.offsetWidth
+      resultElement.classList.add("result");
+      var remainElement = document.getElementById("remain");
+      
+      // 禁用抽奖按钮，避免多次点击
+      lotteryButton.disabled = true;
+      
+      // 显示抽奖结果
+      if(prizes.length<=0){
+        resultElement.textContent ="没了你还焯(抽)"
+      }else{
+        resultElement.textContent = "恭喜你获得：" + prizes[randomIndex];
+        prizes.splice(randomIndex, 1);
+        remainElement.textContent = "剩余奖品:"+prizes.length;
+        var timerId = setTimeout(function(){
+            resultElement.textContent ="";
+            clearTimeout(timerId);
+            lotteryButton.disabled = false;
+        } , 5000);
+      //
+    }
+    }
+  </script>
+</body>
+
+<style>
+    .container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 15vh; /* 设置容器的高度，可以根据需要调整 */
+    }
+
+    .container1 {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 25vh; /* 设置容器的高度，可以根据需要调整 */
+    }
+
+    .centered-text {
+    text-align: center; /* 水平居中 */
+    }
+    @keyframes textG{
+        0% {color:black;background-color: #fff;border-radius: 100px;}
+        50%{color:rgb(0, 255, 170);background-color: blue;border-radius: 0px;}
+        100%{color:blue;background-color: aquamarine;border-radius: 100px;}
+    }
+    @keyframes textBIG{
+        0% {font-size: 16px;}
+        50% { font-size: 240px; }
+        100% { font-size: 16px; }
+    }
+    .button {
+        width: 200px;
+        height: 100px;
+        animation:textG 3s linear infinite;
+    }
+    .result{
+        animation: textBIG 3s ease-in-out;
+    }
+</style>
+</html>
